@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "855635957373",
+    "project_id": "mskapp-ace18",
+    "storage_bucket": "mskapp-ace18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855635957373:android:46ac6bcd827ba375eac314",
+        "android_client_info": {
+          "package_name": "com.mskapp.mskapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "855635957373-n0o4a4ehnnhocqc9jsnt5kiq42trh4s7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mskapp.mskapp",
+            "certificate_hash": "3bfd3bc4095a27df0045d30c3e42592b8a0dd4d0"
+          }
+        },
+        {
+          "client_id": "855635957373-ta8lo8abrvnnbcqrc1773dpp6rus5vdt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQiZby9a9SDehhZ6srz3SjVx92CLM3O0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "855635957373-ta8lo8abrvnnbcqrc1773dpp6rus5vdt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
