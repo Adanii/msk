@@ -43,6 +43,7 @@ class AuthController extends GetxController {
     String noCif,
   ) async {
     CollectionReference users = firestore.collection("user_profile");
+
     users.doc(auth.currentUser!.email).update({
       "displayName": name,
       "noHp": noHp,

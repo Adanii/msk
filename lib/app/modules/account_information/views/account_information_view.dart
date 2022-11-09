@@ -25,7 +25,7 @@ class AccountInformationView extends GetView<AccountInformationController> {
           leading: GestureDetector(
             child: Icon(Icons.arrow_back_ios),
             onTap: () {
-              Get.toNamed(Routes.HOME);
+              Get.offNamed(Routes.HOME);
             },
           ),
         ),
@@ -91,6 +91,26 @@ class AccountInformationView extends GetView<AccountInformationController> {
                         ),
                         onTap: () {
                           Get.toNamed(Routes.USER_PROFILE_INFORMATION);
+                        },
+                      )),
+                  Card(
+                      color: Colors.grey[300],
+                      elevation: 2,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)),
+                      semanticContainer: true,
+                      child: ListTile(
+                        trailing: Icon(Icons.arrow_forward_ios_rounded),
+                        dense: true,
+                        title: Text(
+                          "User Profile Information Search",
+                          style: GoogleFonts.nunito(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        onTap: () {
+                          Get.toNamed(Routes.USER_INFORMATION_SEARCH);
                         },
                       )),
                   Card(

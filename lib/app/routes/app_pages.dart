@@ -1,19 +1,21 @@
 import 'package:get/get.dart';
 
-import 'package:mskapp/app/modules/account_information/bindings/account_information_binding.dart';
-import 'package:mskapp/app/modules/account_information/views/account_information_view.dart';
-import 'package:mskapp/app/modules/account_setting/bindings/account_setting_binding.dart';
-import 'package:mskapp/app/modules/account_setting/views/account_setting_view.dart';
-import 'package:mskapp/app/modules/home/bindings/home_binding.dart';
-import 'package:mskapp/app/modules/home/views/home_view.dart';
-import 'package:mskapp/app/modules/login/bindings/login_binding.dart';
-import 'package:mskapp/app/modules/login/views/login_view.dart';
-import 'package:mskapp/app/modules/reset_password/bindings/reset_password_binding.dart';
-import 'package:mskapp/app/modules/reset_password/views/reset_password_view.dart';
-import 'package:mskapp/app/modules/signup/bindings/signup_binding.dart';
-import 'package:mskapp/app/modules/signup/views/signup_view.dart';
-import 'package:mskapp/app/modules/user_profile_information/bindings/user_profile_information_binding.dart';
-import 'package:mskapp/app/modules/user_profile_information/views/user_profile_information_view.dart';
+import '../modules/account_information/bindings/account_information_binding.dart';
+import '../modules/account_information/views/account_information_view.dart';
+import '../modules/account_setting/bindings/account_setting_binding.dart';
+import '../modules/account_setting/views/account_setting_view.dart';
+import '../modules/home/bindings/home_binding.dart';
+import '../modules/home/views/home_view.dart';
+import '../modules/login/bindings/login_binding.dart';
+import '../modules/login/views/login_view.dart';
+import '../modules/reset_password/bindings/reset_password_binding.dart';
+import '../modules/reset_password/views/reset_password_view.dart';
+import '../modules/signup/bindings/signup_binding.dart';
+import '../modules/signup/views/signup_view.dart';
+import '../modules/user_information_search/bindings/user_information_search_binding.dart';
+import '../modules/user_information_search/views/user_information_search_view.dart';
+import '../modules/user_profile_information/bindings/user_profile_information_binding.dart';
+import '../modules/user_profile_information/views/user_profile_information_view.dart';
 
 part 'app_routes.dart';
 
@@ -57,6 +59,11 @@ class AppPages {
       name: _Paths.USER_PROFILE_INFORMATION,
       page: () => UserProfileInformationView(),
       binding: UserProfileInformationBinding(),
+    ),
+    GetPage(
+      name: _Paths.USER_INFORMATION_SEARCH,
+      page: () => UserInformationSearchView(),
+      binding: UserInformationSearchBinding(),
     ),
   ];
 }
