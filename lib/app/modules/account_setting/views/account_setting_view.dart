@@ -22,67 +22,6 @@ class AccountSettingView extends GetView<AccountSettingController> {
         foregroundColor: Colors.teal,
         automaticallyImplyLeading: false,
       ),
-      body: Column(
-        children: [
-          Container(
-            height: 100,
-            width: double.infinity,
-            color: Colors.amber,
-            child: TextField(
-              controller: controller.displayNameC,
-              decoration: InputDecoration(
-                label: Text("Nama"),
-              ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              try {
-                user.currentUser!
-                    .updateDisplayName(controller.displayNameC.text);
-                Get.defaultDialog(
-                  title: "Berhasil",
-                  middleText: "Berhasil MengUpdate Nama Anda",
-                  onConfirm: () {
-                    Get.back();
-                  },
-                  textConfirm: "OK",
-                );
-              } catch (e) {}
-              user.currentUser!.updateDisplayName(controller.displayNameC.text);
-            },
-            child: Text("Update"),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Get.toNamed(Routes.ACCOUNT_INFORMATION);
-                    },
-                    child: Text(
-                      "Back",
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(width: 10),
-              ElevatedButton(
-                onPressed: () {
-                  authC.signOut();
-                },
-                child: Text(
-                  "Sign Out",
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
     );
   }
 }
