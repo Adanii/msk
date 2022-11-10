@@ -19,7 +19,7 @@ class UserProfileInformationView
   Widget build(BuildContext context) {
     //Isi dari textfield
     controller.nameC.text = authC.userModels.value.name ?? "";
-    controller.emailC.text = authC.auth.currentUser!.email!;
+    controller.emailC.text = authC.userModels.value.email ?? "";
     controller.noHp.text = authC.userModels.value.noHp ?? "";
 
     //textfield KTP
@@ -100,9 +100,6 @@ class UserProfileInformationView
                     Get.defaultDialog(
                       title: "Berhasil",
                       middleText: "Berhasil MengUpdate",
-                      onConfirm: () {
-                        Get.back();
-                      },
                       textConfirm: "OK",
                     );
                   } catch (e) {}
