@@ -10,3 +10,10 @@ class UserInformationSearchBinding extends Bindings {
     );
   }
 }
+
+class UserInformationUpdateBinding extends Bindings {
+  void dependencies() {
+    Get.lazyPut<UserInformationSearchController>(
+        (() => UserInformationSearchController()));
+  }
+}

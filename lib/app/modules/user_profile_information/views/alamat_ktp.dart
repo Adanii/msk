@@ -29,7 +29,6 @@ class alamat_ktp extends GetView<UserProfileInformationController> {
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
             controller: controller.noKtp,
-            readOnly: authC.userModels.value.noKtp != "" ? true : false,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
                 label: Text("No KTP"),

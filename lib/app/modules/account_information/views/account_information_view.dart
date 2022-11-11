@@ -25,7 +25,7 @@ class AccountInformationView extends GetView<AccountInformationController> {
           leading: GestureDetector(
             child: Icon(Icons.arrow_back_ios),
             onTap: () {
-              Get.offNamed(Routes.HOME);
+              Get.toNamed(Routes.HOME);
             },
           ),
         ),
