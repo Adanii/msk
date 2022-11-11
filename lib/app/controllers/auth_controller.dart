@@ -13,10 +13,6 @@ class AuthController extends GetxController {
 
   Stream<User?> get streamAuthStatus => auth.authStateChanges();
 
-  void searchUser(String email) async {
-    CollectionReference users = firestore.collection("user_profile");
-  }
-
   void updateUser(
     String name,
     String noHp,
