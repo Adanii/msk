@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:mskapp/app/controllers/auth_controller.dart';
+import 'package:mskapp/app/data/models/user_model.dart';
 
 class UserInformationSearchController extends GetxController {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
@@ -30,7 +33,6 @@ class UserInformationSearchController extends GetxController {
 
   @override
   void onClose() {
-    searchByEmail.dispose();
     super.onClose();
   }
 }

@@ -12,6 +12,53 @@ class AuthController extends GetxController {
   var userModels = UserModel().obs;
 
   Stream<User?> get streamAuthStatus => auth.authStateChanges();
+  @override
+  void onInit() async {
+    CollectionReference users = firestore.collection("user_profile");
+    final crrntUser = await users.doc(auth.currentUser!.email).get();
+    final crrntUserData = crrntUser.data() as Map<String, dynamic>;
+
+    userModels(
+      UserModel(
+        uid: crrntUserData["uid"],
+        name: crrntUserData["displayName"],
+        email: crrntUserData["email"],
+        noHp: crrntUserData["noHp"],
+        lastSignIn: crrntUserData["lastSignIn"],
+
+        //alamat ktp
+        noKtp: crrntUserData["no_ktp"],
+        almtKtp: crrntUserData["alamat_ktp"],
+        kabKtp: crrntUserData["kabupaten_ktp"],
+        kecKtp: crrntUserData["kecamatan_ktp"],
+        kotaKtp: crrntUserData["kota_ktp"],
+        rtKtp: crrntUserData["rt_ktp"],
+        rwKtp: crrntUserData["rw_ktp"],
+        kPosKtp: crrntUserData["kode_pos_ktp"],
+        //alamat rumah
+        almtRmh: crrntUserData["alamat_ktp"],
+        noTlpRmh: crrntUserData["no_telp_rumah"],
+        kabRmh: crrntUserData["kabupaten_rumah"],
+        kecRmh: crrntUserData["kecamatan_rumah"],
+        kotaRmh: crrntUserData["kota_rumah"],
+        rtRmh: crrntUserData["rt_rumah"],
+        rwRmh: crrntUserData["rw_rumah"],
+        kPosRmh: crrntUserData["kode_pos_rumah"],
+        //alamat kantor
+        almtKtr: crrntUserData["alamat_kantor"],
+        kabKtr: crrntUserData["kabupaten_kantor"],
+        kecKtr: crrntUserData["kecamatan_kantor"],
+        kotaKtr: crrntUserData["kota_kantor"],
+        rtKtr: crrntUserData["rt_kantor"],
+        rwKtr: crrntUserData["rw_kantor"],
+        kPosKtr: crrntUserData["kode_pos_kantor"],
+        noTlpKtr: crrntUserData["no_telp_kantor"],
+        noCif: crrntUserData["no_cif"],
+      ),
+    );
+
+    super.onInit();
+  }
 
   void updateUser(
     String name,
@@ -79,7 +126,7 @@ class AuthController extends GetxController {
       email: auth.currentUser!.email,
       noHp: noHp,
       lastSignIn: auth.currentUser!.metadata.lastSignInTime!.toIso8601String(),
-      photoUrl: auth.currentUser!.photoURL,
+
       //alamat ktp
       noKtp: noKtp,
       almtKtp: almtKtp,
@@ -172,8 +219,6 @@ class AuthController extends GetxController {
     CollectionReference users = firestore.collection('user_profile');
 
     try {
-      await auth.signOut();
-
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
         email: email,
         password: password,
@@ -200,7 +245,6 @@ class AuthController extends GetxController {
           "displayName": auth.currentUser!.displayName,
           "lastSignIn":
               auth.currentUser!.metadata.lastSignInTime!.toIso8601String(),
-          "photoUrl": auth.currentUser!.photoURL,
           "noHp": "",
           "no_ktp": "",
           "alamat_ktp": "",
@@ -253,7 +297,7 @@ class AuthController extends GetxController {
           kotaKtp: crrntUserData["kota_ktp"],
           rtKtp: crrntUserData["rt_ktp"],
           rwKtp: crrntUserData["rw_ktp"],
-          kPosKtp: crrntUserData["kPos_ktp"],
+          kPosKtp: crrntUserData["kode_pos_ktp"],
           //alamat rumah
           almtRmh: crrntUserData["alamat_ktp"],
           noTlpRmh: crrntUserData["no_telp_rumah"],
@@ -275,6 +319,7 @@ class AuthController extends GetxController {
           noCif: crrntUserData["no_cif"],
         ),
       );
+      userModels.refresh();
     } on FirebaseAuthException catch (e) {
       if (e.code == "user-not-found") {
         print(e);
@@ -376,10 +421,4 @@ class AuthController extends GetxController {
           Get.offAllNamed(Routes.LOGIN);
         });
   }
-
-  // Future<void> getUser() async {
-  //   CollectionReference users = firestore.collection('user_profile');
-  //   final crrntUser = await users.doc(auth.currentUser!.email).get();
-  //   final crrntUserData = crrntUser.data() as Map<String, dynamic>;
-  // }
 }

@@ -1,5 +1,13 @@
-import 'package:flutter/cupertino.dart';
+// ignore_for_file: unnecessary_null_comparison
+
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter_email_sender/flutter_email_sender.dart';
 
 class UserProfileInformationController extends GetxController {
   late TextEditingController nameC;
@@ -33,6 +41,149 @@ class UserProfileInformationController extends GetxController {
   late TextEditingController rwKtr;
   late TextEditingController kPosKtr;
   late TextEditingController noTlpKtr;
+
+  final _pick = ImagePicker();
+  XFile? ktpImagePicked = null;
+  XFile? wKtpImagePicked = null;
+
+  FirebaseStorage storage = FirebaseStorage.instance;
+
+  void pilihFotoKTP() async {
+    try {
+      final dataImageKTP = await _pick.pickImage(source: ImageSource.gallery);
+      print(dataImageKTP!.name);
+      if (dataImageKTP != null) {
+        ktpImagePicked = dataImageKTP;
+      }
+      update();
+    } catch (e) {
+      print(e);
+      update();
+    }
+  }
+
+  void pilihFotoDenganKTP() async {
+    try {
+      final dataImageWKTP = await _pick.pickImage(source: ImageSource.gallery);
+      print(dataImageWKTP!.name);
+      if (dataImageWKTP != null) {
+        wKtpImagePicked = dataImageWKTP;
+      }
+      update();
+    } catch (e) {
+      print(e);
+      update();
+    }
+  }
+
+  void resetImageKtp() async {
+    ktpImagePicked = null;
+    update();
+  }
+
+  void resetImageWKTP() async {
+    wKtpImagePicked = null;
+    update();
+  }
+
+  void uploadKtpImage(String email) {
+    File file = File(ktpImagePicked!.path);
+    final storageRef = storage.ref(email);
+    final childRef = storageRef.child("FotoKtpImage.jpg");
+    Get.dialog(
+      AlertDialog(
+        title: Text("Upload ?"),
+        content: Text("Apakah foto sudah benar?"),
+        actions: [
+          Column(
+            children: [
+              TextButton(
+                onPressed: () async {
+                  try {
+                    await childRef.putFile(file);
+
+                    Get.defaultDialog(
+                      title: "Berhasil",
+                      middleText: "Berhasil Upload Foto",
+                    );
+                  } catch (e) {
+                    print(e);
+                  }
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.upload),
+                    Text("Upload"),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  void uploadFotoDenganKtpImage(String email) async {
+    File file = File(wKtpImagePicked!.path);
+    final storageRef = storage.ref(email);
+    final childRef = storageRef.child("FotoDenganKtpImage.jpg");
+    Get.dialog(
+      AlertDialog(
+        title: Text("Upload ?"),
+        content: Text("Apakah foto sudah benar?"),
+        actions: [
+          Column(
+            children: [
+              TextButton(
+                onPressed: () async {
+                  try {
+                    await childRef.putFile(file);
+
+                    Get.defaultDialog(
+                      title: "Berhasil",
+                      middleText: "Berhasil Upload Foto",
+                    );
+                  } catch (e) {
+                    print(e);
+                  }
+                },
+                child: Row(
+                  children: [
+                    Icon(Icons.upload),
+                    Text("Upload"),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  void sendEmail(String emailR) async {
+    final Email email = Email(
+      body: 'Terjadi Perubahan Data pada user ${emailR}',
+      subject: 'Test Sending Email From Flutter',
+      recipients: ['adaniafid@gmail.com'],
+    );
+    await FlutterEmailSender.send(email);
+  }
+
+  // void sendEmail(String emailR) async {
+  //   const GMAIL_SCHEMA = 'com.google.android.gm';
+  //   final bool gmailIsInstalled =
+  //       await FlutterMailer.isAppInstalled(GMAIL_SCHEMA);
+  //   if (gmailIsInstalled) {
+  //     final MailOptions mailOptions = MailOptions(
+  //       body: 'Terjadi Perubahan Data pada useremail ${emailR}',
+  //       subject: 'Test Sending Email From Flutter',
+  //       recipients: [''],
+  //     );
+  //     await FlutterMailer.send(mailOptions);
+  //   }
+  // }
 
   @override
   void onInit() {

@@ -11,12 +11,17 @@ import 'app/routes/app_pages.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(
-    MyApp(),
-  );
+  runApp(MaterialApp(
+    home: MyApp(),
+  ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   final authC = Get.put(AuthController(), permanent: true);
 
   @override
@@ -27,11 +32,10 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.active) {
             print(snapshot.data);
             return GetMaterialApp(
+              debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 primarySwatch: Colors.teal,
               ),
-              debugShowCheckedModeBanner: false,
-              title: "Application",
               initialRoute:
                   snapshot.data != null && snapshot.data!.emailVerified == true
                       ? Routes.HOME

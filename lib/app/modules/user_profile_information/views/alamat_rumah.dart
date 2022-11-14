@@ -43,6 +43,7 @@ class alamat_rumah extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.noTlpRmh,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -118,6 +119,7 @@ class alamat_rumah extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.rtRmh,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -137,6 +139,7 @@ class alamat_rumah extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.rwRmh,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -156,6 +159,7 @@ class alamat_rumah extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.kPosRmh,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(

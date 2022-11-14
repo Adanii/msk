@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:mskapp/app/controllers/auth_controller.dart';
-import 'package:mskapp/app/routes/app_pages.dart';
 
 import '../controllers/account_setting_controller.dart';
 
@@ -20,7 +19,6 @@ class AccountSettingView extends GetView<AccountSettingController> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.teal,
-        automaticallyImplyLeading: false,
       ),
     );
   }

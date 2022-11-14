@@ -28,8 +28,8 @@ class alamat_ktp extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.noKtp,
-            readOnly: authC.userModels.value.noKtp != "" ? true : false,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
                 label: Text("No KTP"),
@@ -47,6 +47,7 @@ class alamat_ktp extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.almtKtp,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -124,6 +125,7 @@ class alamat_ktp extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.rtKtp,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -143,6 +145,7 @@ class alamat_ktp extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.rwKtp,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -162,6 +165,7 @@ class alamat_ktp extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.kPosKtp,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
