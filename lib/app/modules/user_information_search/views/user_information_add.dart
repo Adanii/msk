@@ -12,50 +12,13 @@ import 'package:mskapp/app/modules/user_profile_information/views/alamat_ktp.dar
 import 'package:mskapp/app/modules/user_profile_information/views/alamat_rumah.dart';
 import 'package:mskapp/app/modules/user_profile_information/views/photo_upload.dart';
 
-class userInformationUpdateView
-    extends GetView<UserInformationSearchController> {
+class userInformationAddView extends GetView<UserInformationSearchController> {
   final authC = Get.find<AuthController>();
   final firestore = FirebaseFirestore.instance;
   final controllers = Get.put(UserProfileInformationController());
 
   @override
   Widget build(BuildContext context) {
-    String email = Get.arguments;
-    controllers.emailC.text = email;
-    //Isi dari textfield
-    controllers.nameC.text = Get.parameters['displayName'] ?? "";
-
-    controllers.noHp.text = Get.parameters['noHp'] ?? "";
-
-    //textfield KTP
-    controllers.noKtp.text = Get.parameters['noKtp'] ?? "";
-    controllers.almtKtp.text = Get.parameters['almtKtp'] ?? "";
-    controllers.kabKtp.text = Get.parameters['kabKtp'] ?? "";
-    controllers.kecKtp.text = Get.parameters['kecKtp'] ?? "";
-    controllers.kotaKtp.text = Get.parameters['kotaKtp'] ?? "";
-    controllers.rtKtp.text = Get.parameters['rtKtp'] ?? "";
-    controllers.rwKtp.text = Get.parameters['rwKtp'] ?? "";
-    controllers.kPosKtp.text = Get.parameters['kPosKtp'] ?? "";
-    //textfield rumah
-    controllers.almtRmh.text = Get.parameters['almtRmh'] ?? "";
-    controllers.noTlpRmh.text = Get.parameters['noTlpRmh'] ?? "";
-    controllers.kabRmh.text = Get.parameters['kabRmh'] ?? "";
-    controllers.kecRmh.text = Get.parameters['kecRmh'] ?? "";
-    controllers.kotaRmh.text = Get.parameters['kotaRmh'] ?? "";
-    controllers.rtRmh.text = Get.parameters['rtRmh'] ?? "";
-    controllers.rwRmh.text = Get.parameters['rwRmh'] ?? "";
-    controllers.kPosRmh.text = Get.parameters['kPosRmh'] ?? "";
-    //textfield kantor
-    controllers.almtKtr.text = Get.parameters['almtKtr'] ?? "";
-    controllers.kabKtr.text = Get.parameters['kabKtr'] ?? "";
-    controllers.kecKtr.text = Get.parameters['kecKtr'] ?? "";
-    controllers.kotaKtr.text = Get.parameters['kotaKtr'] ?? "";
-    controllers.rtKtr.text = Get.parameters['rtKtr'] ?? "";
-    controllers.rwKtr.text = Get.parameters['rwKtr'] ?? "";
-    controllers.kPosKtr.text = Get.parameters['kPosKtr'] ?? "";
-    controllers.noTlpKtr.text = Get.parameters['noTlpKtr'] ?? "";
-    controllers.noCif.text = Get.parameters['noCif'] ?? "";
-
     return SafeArea(
       child: Scaffold(
           appBar: AppBar(
@@ -63,7 +26,7 @@ class userInformationUpdateView
             foregroundColor: Colors.teal,
             backgroundColor: Colors.grey[200],
             centerTitle: true,
-            title: Text("UPDATE"),
+            title: Text("ADD DATA"),
           ),
           body: Container(
             padding: EdgeInsets.all(10),
@@ -101,7 +64,6 @@ class userInformationUpdateView
                       height: 35,
                       padding: EdgeInsets.only(left: 5, right: 5),
                       child: TextField(
-                        readOnly: true,
                         controller: controllers.emailC,
                         textAlignVertical: TextAlignVertical.center,
                         decoration: InputDecoration(
@@ -166,18 +128,18 @@ class userInformationUpdateView
                                 borderRadius: BorderRadius.circular(4))),
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Divider(height: 10, thickness: 5),
+                    SizedBox(height: 5),
                     photoUpload(),
                     SizedBox(height: 10),
                     Container(
                       height: 30,
                       width: double.infinity,
                       child: ElevatedButton(
-                        child: Text("Update"),
+                        child: Text("ADD"),
                         onPressed: () {
                           try {
-                            controller.updateByEmail(
+                            controller.addByEmail(
+                              controllers.emailC.text,
                               controllers.nameC.text,
                               controllers.noHp.text,
                               controllers.noKtp.text,

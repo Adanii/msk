@@ -37,12 +37,19 @@ class _UserInformationSearchViewState extends State<UserInformationSearchView> {
 
         return Scaffold(
           appBar: AppBar(
+            elevation: 0,
+            foregroundColor: Colors.teal,
+            backgroundColor: Colors.grey[200],
+            centerTitle: true,
             title: Text("User Search"),
-            leading: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  Get.offAllNamed(Routes.HOME);
-                }),
+            actions: [
+              TextButton.icon(
+                  onPressed: () {
+                    Get.toNamed(Routes.USER_INFORMATION_ADD);
+                  },
+                  icon: Icon(Icons.add_box_rounded),
+                  label: Text("Add Data"))
+            ],
           ),
           body: Column(
             children: [
@@ -57,7 +64,7 @@ class _UserInformationSearchViewState extends State<UserInformationSearchView> {
                   },
                   decoration: InputDecoration(
                       label: Text("email"),
-                      prefixIcon: Icon(Icons.search),
+                      suffixIcon: Icon(Icons.search),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10))),
                 ),

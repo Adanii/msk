@@ -19,7 +19,6 @@ class AccountSettingView extends GetView<AccountSettingController> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.teal,
-        automaticallyImplyLeading: false,
       ),
     );
   }

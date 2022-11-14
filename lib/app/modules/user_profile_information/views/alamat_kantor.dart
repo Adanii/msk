@@ -96,6 +96,7 @@ class alamat_kantor extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.rtKtr,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -114,6 +115,7 @@ class alamat_kantor extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.rwKtr,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -132,6 +134,7 @@ class alamat_kantor extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.kPosKtr,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
@@ -150,6 +153,7 @@ class alamat_kantor extends GetView<UserProfileInformationController> {
           height: 35,
           padding: EdgeInsets.only(left: 5, right: 5),
           child: TextField(
+            keyboardType: TextInputType.number,
             controller: controller.noTlpKtr,
             textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(

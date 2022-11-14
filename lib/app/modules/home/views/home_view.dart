@@ -33,12 +33,22 @@ class HomeView extends GetView<HomeController> {
             Icons.directions_car,
             color: Colors.white,
           )),
+          Tab(
+              icon: Icon(
+            Icons.airplanemode_active,
+            color: Colors.white,
+          )),
+          Tab(
+              icon: Icon(
+            Icons.handyman_sharp,
+            color: Colors.white,
+          )),
         ],
       );
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 5,
       child: Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -52,7 +62,7 @@ class HomeView extends GetView<HomeController> {
           actions: [
             IconButton(
               onPressed: () {
-                Get.offAllNamed(Routes.ACCOUNT_INFORMATION);
+                Get.toNamed(Routes.ACCOUNT_INFORMATION);
               },
               icon: Icon(Icons.account_circle),
             ),
@@ -85,16 +95,29 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
         body: TabBarView(children: [
+          //tab1
           Icon(
             Icons.home,
             color: Colors.teal,
           ),
+          //tab2
           Icon(
             Icons.directions_bike,
             color: Colors.teal,
           ),
+          //tab3
           Icon(
             Icons.directions_car,
+            color: Colors.teal,
+          ),
+          //tab4
+          Icon(
+            Icons.airplanemode_active,
+            color: Colors.teal,
+          ),
+          //tab5
+          Icon(
+            Icons.handyman_sharp,
             color: Colors.teal,
           ),
         ]),

@@ -22,12 +22,6 @@ class AccountInformationView extends GetView<AccountInformationController> {
           foregroundColor: Colors.teal,
           backgroundColor: Colors.grey[200],
           centerTitle: true,
-          leading: GestureDetector(
-            child: Icon(Icons.arrow_back_ios),
-            onTap: () {
-              Get.toNamed(Routes.HOME);
-            },
-          ),
         ),
         body: Container(
           height: double.infinity,
@@ -121,7 +115,7 @@ class AccountInformationView extends GetView<AccountInformationController> {
                       semanticContainer: true,
                       child: ListTile(
                         onTap: () {
-                          Get.offNamed(Routes.ACCOUNT_SETTING);
+                          Get.toNamed(Routes.ACCOUNT_SETTING);
                         },
                         trailing: Icon(Icons.arrow_forward_ios_rounded),
                         dense: true,
