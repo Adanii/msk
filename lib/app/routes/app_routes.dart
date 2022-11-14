@@ -15,6 +15,7 @@ abstract class Routes {
   static const USER_PROFILE_INFORMATION = _Paths.USER_PROFILE_INFORMATION;
   static const USER_INFORMATION_SEARCH = _Paths.USER_INFORMATION_SEARCH;
   static const USER_INFORMATION_UPDATE = _Paths.USER_INFORMATION_UPDATE;
+  static const USER_INFORMATION_ADD = _Paths.USER_INFOMRATION_ADD;
 }
 
 abstract class _Paths {
@@ -29,4 +30,5 @@ abstract class _Paths {
   static const USER_PROFILE_INFORMATION = '/user-profile-information';
   static const USER_INFORMATION_SEARCH = '/user-information-search';
   static const USER_INFORMATION_UPDATE = '/user-information-update';
+  static const USER_INFOMRATION_ADD = '/user-information-add';
 }

@@ -17,3 +17,10 @@ class UserInformationUpdateBinding extends Bindings {
         (() => UserInformationSearchController()));
   }
 }
+
+class UserInformationAddBinding extends Bindings {
+  void dependencies() {
+    Get.lazyPut<UserInformationSearchController>(
+        (() => UserInformationSearchController()));
+  }
+}

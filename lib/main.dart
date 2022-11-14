@@ -32,11 +32,10 @@ class _MyAppState extends State<MyApp> {
           if (snapshot.connectionState == ConnectionState.active) {
             print(snapshot.data);
             return GetMaterialApp(
+              debugShowCheckedModeBanner: false,
               theme: ThemeData(
                 primarySwatch: Colors.teal,
               ),
-              debugShowCheckedModeBanner: false,
-              title: "Application",
               initialRoute:
                   snapshot.data != null && snapshot.data!.emailVerified == true
                       ? Routes.HOME

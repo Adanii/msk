@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:mskapp/app/modules/user_information_search/views/user_information_add.dart';
 import 'package:mskapp/app/modules/user_information_search/views/user_information_update.dart';
 
 import '../modules/account_information/bindings/account_information_binding.dart';
@@ -70,6 +71,11 @@ class AppPages {
       name: _Paths.USER_INFORMATION_UPDATE,
       page: () => userInformationUpdateView(),
       binding: UserInformationUpdateBinding(),
+    ),
+    GetPage(
+      name: _Paths.USER_INFOMRATION_ADD,
+      page: () => userInformationAddView(),
+      binding: UserInformationAddBinding(),
     ),
   ];
 }
